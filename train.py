@@ -91,16 +91,17 @@ from tqdm import tqdm
 for epoch in range(opt.epochs):
     print('epoch:',epoch)
     batch_i=0
+    optimizer.zero_grad()
     for  (_, imgs, targets) in tqdm(dataloader):
-        with torch.cuda.amp.autocast():    
+        with torch.cuda.amp.autocast():
+               
             imgs = Variable(imgs.type(Tensor))
             targets = Variable(targets.type(Tensor), requires_grad=False)
-            
-            optimizer.zero_grad()
-           
             loss = model(imgs, targets)
             loss.backward()
-            optimizer.step()
+            if batch_i %8==0:
+                optimizer.step()
+                optimizer.zero_grad()
         wandb.log({"totale":loss.item(),"x":float(model.losses["x"]),"y":float(model.losses["y"]),"pr":float(model.losses["precision"]),"recall":float(model.losses["recall"])})
         print(
             "[Epoch %d/%d, Batch %d/%d] [Losses: x %f, y %f, w %f, h %f, conf %f, cls %f, total %f, recall: %.5f, precision: %.5f]"
