@@ -112,7 +112,7 @@ class YOLOLayer(nn.Module):
         self.lambda_coord = 1
 
         self.mse_loss = nn.MSELoss(size_average=True)  # Coordinate loss
-        self.bce_loss = nn.BCEWithLogitsLoss(size_average=True)  # Confidence loss
+        self.bce_loss = nn.BCELoss(size_average=True)  # Confidence loss
         self.ce_loss = nn.CrossEntropyLoss()  # Class loss
 
     def forward(self, x, targets=None):
