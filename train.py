@@ -79,7 +79,7 @@ print("model.train")
 # Get dataloader
 dataset=ListDataset(train_path)
 dataloader = torch.utils.data.DataLoader(
-    ListDataset(train_path), batch_size=opt.batch_size, shuffle=False, num_workers=6
+    ListDataset(train_path), batch_size=opt.batch_size, shuffle=False, num_workers=12
 )
 print(dataset[0])
 print("loader done")
