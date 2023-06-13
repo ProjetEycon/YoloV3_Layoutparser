@@ -69,7 +69,7 @@ model = Darknet(opt.model_config_path)
 print("model done")
 print(model)
 #model.load_weights(opt.weights_path)
-#model.apply(weights_init_normal)
+model.apply(weights_init_normal)
 
 if cuda:
     model = model.cuda()
@@ -85,7 +85,7 @@ print(dataset[0])
 print("loader done")
 Tensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
 
-optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()))
+optimizer = torch.optim.SGD(filter(lambda p: p.requires_grad, model.parameters()),lr=learning_rate)
 print("debut du training")
 from tqdm import tqdm
 for epoch in range(opt.epochs):
