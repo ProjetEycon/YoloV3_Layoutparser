@@ -47,7 +47,7 @@ class ImageFolder(Dataset):
 
 
 class ListDataset(Dataset):
-    def __init__(self, list_path, img_size=int(2300/3)):
+    def __init__(self, list_path, img_size=int(2300)):
         with open(list_path, 'r') as file:
             self.img_files = file.readlines()
         self.label_files = [path.replace('images', 'labels').replace('.jpg', '.txt') for path in self.img_files]

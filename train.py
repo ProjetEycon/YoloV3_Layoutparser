@@ -20,10 +20,10 @@ import torch.optim as optim
 import wandb
 
 config = {
-  "gpu":"gtx1660",
+  "gpu":"gpu-4",
   "num_classes": 2,
   "batch_size":1,
-  "image":2300/3
+  "image":2300
 }
 
 # Pass the config dictionary when you initialize W&B
@@ -31,7 +31,7 @@ run = wandb.init(project="yolo v3", config=config)
 parser = argparse.ArgumentParser()
 parser.add_argument("--epochs", type=int, default=20, help="number of epochs")
 parser.add_argument("--image_folder", type=str, default="data/artifacts/images", help="path to dataset")
-parser.add_argument("--batch_size", type=int, default=1, help="size of each image batch")
+parser.add_argument("--batch_size", type=int, default=16, help="size of each image batch")
 parser.add_argument("--model_config_path", type=str, default="config/yolov3.cfg", help="path to model config file")
 parser.add_argument("--data_config_path", type=str, default="config/coco.data", help="path to data config file")
 parser.add_argument("--weights_path", type=str, default="config/yolov3.weights", help="path to weights file")
@@ -94,7 +94,7 @@ for epoch in range(opt.epochs):
     for  (_, imgs, targets) in tqdm(dataloader):
         with torch.cuda.amp.autocast():    
             imgs = Variable(imgs.type(Tensor))
-            targets = Variable(targets.type(Tensor), requires_grad=False)/3
+            targets = Variable(targets.type(Tensor), requires_grad=False)
             
             optimizer.zero_grad()
            
