@@ -93,7 +93,7 @@ for epoch in range(opt.epochs):
     batch_i=0
     optimizer.zero_grad()
     for  (_, imgs, targets) in tqdm(dataloader):
-        with torch.cuda.amp.autocast():
+        #with torch.cuda.amp.autocast():
                
             imgs = Variable(imgs.type(Tensor))
             targets = Variable(targets.type(Tensor), requires_grad=False)
@@ -123,8 +123,8 @@ for epoch in range(opt.epochs):
             )
         
         )
-        batch_i+=1
-        model.seen += imgs.size(0)
+            batch_i+=1
+            model.seen += imgs.size(0)
 
     if epoch % opt.checkpoint_interval == 0:
         model.save_weights("%s/%d.weights" % (opt.checkpoint_dir, epoch))
