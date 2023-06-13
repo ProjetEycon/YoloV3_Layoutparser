@@ -100,10 +100,11 @@ for epoch in range(opt.epochs):
             loss = model(imgs, targets)
             loss.backward()
             if batch_i %8==0:
+                print("i am doing the step")
                 optimizer.step()
                 optimizer.zero_grad()
-        wandb.log({"totale":loss.item(),"x":float(model.losses["x"]),"y":float(model.losses["y"]),"pr":float(model.losses["precision"]),"recall":float(model.losses["recall"])})
-        print(
+                wandb.log({"totale":loss.item(),"x":float(model.losses["x"]),"y":float(model.losses["y"]),"pr":float(model.losses["precision"]),"recall":float(model.losses["recall"])})
+                print(
             "[Epoch %d/%d, Batch %d/%d] [Losses: x %f, y %f, w %f, h %f, conf %f, cls %f, total %f, recall: %.5f, precision: %.5f]"
             % (
                 epoch,
