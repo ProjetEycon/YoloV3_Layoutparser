@@ -1,0 +1,50 @@
+{
+    "os": "Windows-10-10.0.22621-SP0",
+    "python": "3.10.9",
+    "heartbeatAt": "2023-06-12T18:48:55.429444",
+    "startedAt": "2023-06-12T18:48:54.674700",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:\\Users\\salim\\Documents\\pytorch_custom_yolo_training\\train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/cfotache/pytorch_custom_yolo_training",
+        "commit": "24d3e3ae64497045fcbfbf88137711ea45b4ae1d"
+    },
+    "email": null,
+    "root": "C:/Users/salim/Documents/pytorch_custom_yolo_training",
+    "host": "DESKTOP-LAAT3M4",
+    "username": "salim",
+    "executable": "C:\\Users\\salim\\Documents\\salimev\\Scripts\\python.exe",
+    "cpu_count": 6,
+    "cpu_count_logical": 6,
+    "cpu_freq": {
+        "current": 2904.0,
+        "min": 0.0,
+        "max": 2904.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2904.0,
+            "min": 0.0,
+            "max": 2904.0
+        }
+    ],
+    "disk": {
+        "total": 222.94797897338867,
+        "used": 177.88986206054688
+    },
+    "gpu": "NVIDIA GeForce GTX 1660",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1660",
+            "memory_total": 6442450944
+        }
+    ],
+    "memory": {
+        "total": 15.943611145019531
+    }
+}

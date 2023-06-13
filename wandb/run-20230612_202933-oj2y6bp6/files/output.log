@@ -1,0 +1,1107 @@
+Namespace(epochs=20, image_folder='data/artifacts/images', batch_size=1, model_config_path='config/yolov3.cfg', data_config_path='config/coco.data', weights_path='config/yolov3.weights', class_path='config/coco.names', conf_thres=0.8, nms_thres=0.4, n_cpu=0, img_size=2300, checkpoint_interval=1, checkpoint_dir='checkpoints', use_cuda=True)
+True
+init du model
+model done
+Darknet(
+  (module_list): ModuleList(
+    (0): Sequential(
+      (conv_0): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_0): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_0): LeakyReLU(negative_slope=0.1)
+    )
+    (1): Sequential(
+      (conv_1): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (batch_norm_1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_1): LeakyReLU(negative_slope=0.1)
+    )
+    (2): Sequential(
+      (conv_2): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_2): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_2): LeakyReLU(negative_slope=0.1)
+    )
+    (3): Sequential(
+      (conv_3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_3): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_3): LeakyReLU(negative_slope=0.1)
+    )
+    (4): Sequential(
+      (shortcut_4): EmptyLayer()
+    )
+    (5): Sequential(
+      (conv_5): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (batch_norm_5): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_5): LeakyReLU(negative_slope=0.1)
+    )
+    (6): Sequential(
+      (conv_6): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_6): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_6): LeakyReLU(negative_slope=0.1)
+    )
+    (7): Sequential(
+      (conv_7): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_7): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_7): LeakyReLU(negative_slope=0.1)
+    )
+    (8): Sequential(
+      (shortcut_8): EmptyLayer()
+    )
+    (9): Sequential(
+      (conv_9): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_9): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_9): LeakyReLU(negative_slope=0.1)
+    )
+    (10): Sequential(
+      (conv_10): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_10): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_10): LeakyReLU(negative_slope=0.1)
+    )
+    (11): Sequential(
+      (shortcut_11): EmptyLayer()
+    )
+    (12): Sequential(
+      (conv_12): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (batch_norm_12): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_12): LeakyReLU(negative_slope=0.1)
+    )
+    (13): Sequential(
+      (conv_13): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_13): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_13): LeakyReLU(negative_slope=0.1)
+    )
+    (14): Sequential(
+      (conv_14): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_14): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_14): LeakyReLU(negative_slope=0.1)
+    )
+    (15): Sequential(
+      (shortcut_15): EmptyLayer()
+    )
+    (16): Sequential(
+      (conv_16): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_16): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_16): LeakyReLU(negative_slope=0.1)
+    )
+    (17): Sequential(
+      (conv_17): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_17): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_17): LeakyReLU(negative_slope=0.1)
+    )
+    (18): Sequential(
+      (shortcut_18): EmptyLayer()
+    )
+    (19): Sequential(
+      (conv_19): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_19): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_19): LeakyReLU(negative_slope=0.1)
+    )
+    (20): Sequential(
+      (conv_20): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_20): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_20): LeakyReLU(negative_slope=0.1)
+    )
+    (21): Sequential(
+      (shortcut_21): EmptyLayer()
+    )
+    (22): Sequential(
+      (conv_22): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_22): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_22): LeakyReLU(negative_slope=0.1)
+    )
+    (23): Sequential(
+      (conv_23): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_23): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_23): LeakyReLU(negative_slope=0.1)
+    )
+    (24): Sequential(
+      (shortcut_24): EmptyLayer()
+    )
+    (25): Sequential(
+      (conv_25): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_25): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_25): LeakyReLU(negative_slope=0.1)
+    )
+    (26): Sequential(
+      (conv_26): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_26): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_26): LeakyReLU(negative_slope=0.1)
+    )
+    (27): Sequential(
+      (shortcut_27): EmptyLayer()
+    )
+    (28): Sequential(
+      (conv_28): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_28): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_28): LeakyReLU(negative_slope=0.1)
+    )
+    (29): Sequential(
+      (conv_29): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_29): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_29): LeakyReLU(negative_slope=0.1)
+    )
+    (30): Sequential(
+      (shortcut_30): EmptyLayer()
+    )
+    (31): Sequential(
+      (conv_31): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_31): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_31): LeakyReLU(negative_slope=0.1)
+    )
+    (32): Sequential(
+      (conv_32): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_32): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_32): LeakyReLU(negative_slope=0.1)
+    )
+    (33): Sequential(
+      (shortcut_33): EmptyLayer()
+    )
+    (34): Sequential(
+      (conv_34): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_34): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_34): LeakyReLU(negative_slope=0.1)
+    )
+    (35): Sequential(
+      (conv_35): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_35): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_35): LeakyReLU(negative_slope=0.1)
+    )
+    (36): Sequential(
+      (shortcut_36): EmptyLayer()
+    )
+    (37): Sequential(
+      (conv_37): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (batch_norm_37): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_37): LeakyReLU(negative_slope=0.1)
+    )
+    (38): Sequential(
+      (conv_38): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_38): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_38): LeakyReLU(negative_slope=0.1)
+    )
+    (39): Sequential(
+      (conv_39): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_39): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_39): LeakyReLU(negative_slope=0.1)
+    )
+    (40): Sequential(
+      (shortcut_40): EmptyLayer()
+    )
+    (41): Sequential(
+      (conv_41): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_41): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_41): LeakyReLU(negative_slope=0.1)
+    )
+    (42): Sequential(
+      (conv_42): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_42): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_42): LeakyReLU(negative_slope=0.1)
+    )
+    (43): Sequential(
+      (shortcut_43): EmptyLayer()
+    )
+    (44): Sequential(
+      (conv_44): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_44): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_44): LeakyReLU(negative_slope=0.1)
+    )
+    (45): Sequential(
+      (conv_45): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_45): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_45): LeakyReLU(negative_slope=0.1)
+    )
+    (46): Sequential(
+      (shortcut_46): EmptyLayer()
+    )
+    (47): Sequential(
+      (conv_47): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_47): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_47): LeakyReLU(negative_slope=0.1)
+    )
+    (48): Sequential(
+      (conv_48): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_48): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_48): LeakyReLU(negative_slope=0.1)
+    )
+    (49): Sequential(
+      (shortcut_49): EmptyLayer()
+    )
+    (50): Sequential(
+      (conv_50): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_50): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_50): LeakyReLU(negative_slope=0.1)
+    )
+    (51): Sequential(
+      (conv_51): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_51): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_51): LeakyReLU(negative_slope=0.1)
+    )
+    (52): Sequential(
+      (shortcut_52): EmptyLayer()
+    )
+    (53): Sequential(
+      (conv_53): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_53): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_53): LeakyReLU(negative_slope=0.1)
+    )
+    (54): Sequential(
+      (conv_54): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_54): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_54): LeakyReLU(negative_slope=0.1)
+    )
+    (55): Sequential(
+      (shortcut_55): EmptyLayer()
+    )
+    (56): Sequential(
+      (conv_56): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_56): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_56): LeakyReLU(negative_slope=0.1)
+    )
+    (57): Sequential(
+      (conv_57): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_57): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_57): LeakyReLU(negative_slope=0.1)
+    )
+    (58): Sequential(
+      (shortcut_58): EmptyLayer()
+    )
+    (59): Sequential(
+      (conv_59): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_59): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_59): LeakyReLU(negative_slope=0.1)
+    )
+    (60): Sequential(
+      (conv_60): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_60): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_60): LeakyReLU(negative_slope=0.1)
+    )
+    (61): Sequential(
+      (shortcut_61): EmptyLayer()
+    )
+    (62): Sequential(
+      (conv_62): Conv2d(512, 1024, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (batch_norm_62): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_62): LeakyReLU(negative_slope=0.1)
+    )
+    (63): Sequential(
+      (conv_63): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_63): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_63): LeakyReLU(negative_slope=0.1)
+    )
+    (64): Sequential(
+      (conv_64): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_64): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_64): LeakyReLU(negative_slope=0.1)
+    )
+    (65): Sequential(
+      (shortcut_65): EmptyLayer()
+    )
+    (66): Sequential(
+      (conv_66): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_66): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_66): LeakyReLU(negative_slope=0.1)
+    )
+    (67): Sequential(
+      (conv_67): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_67): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_67): LeakyReLU(negative_slope=0.1)
+    )
+    (68): Sequential(
+      (shortcut_68): EmptyLayer()
+    )
+    (69): Sequential(
+      (conv_69): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_69): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_69): LeakyReLU(negative_slope=0.1)
+    )
+    (70): Sequential(
+      (conv_70): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_70): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_70): LeakyReLU(negative_slope=0.1)
+    )
+    (71): Sequential(
+      (shortcut_71): EmptyLayer()
+    )
+    (72): Sequential(
+      (conv_72): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_72): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_72): LeakyReLU(negative_slope=0.1)
+    )
+    (73): Sequential(
+      (conv_73): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_73): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_73): LeakyReLU(negative_slope=0.1)
+    )
+    (74): Sequential(
+      (shortcut_74): EmptyLayer()
+    )
+    (75): Sequential(
+      (conv_75): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_75): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_75): LeakyReLU(negative_slope=0.1)
+    )
+    (76): Sequential(
+      (conv_76): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_76): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_76): LeakyReLU(negative_slope=0.1)
+    )
+    (77): Sequential(
+      (conv_77): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_77): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_77): LeakyReLU(negative_slope=0.1)
+    )
+    (78): Sequential(
+      (conv_78): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_78): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_78): LeakyReLU(negative_slope=0.1)
+    )
+    (79): Sequential(
+      (conv_79): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_79): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_79): LeakyReLU(negative_slope=0.1)
+    )
+    (80): Sequential(
+      (conv_80): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_80): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_80): LeakyReLU(negative_slope=0.1)
+    )
+    (81): Sequential(
+      (conv_81): Conv2d(1024, 24, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (82): Sequential(
+      (yolo_82): YOLOLayer(
+        (mse_loss): MSELoss()
+        (bce_loss): BCEWithLogitsLoss()
+        (ce_loss): CrossEntropyLoss()
+      )
+    )
+    (83): Sequential(
+      (route_83): EmptyLayer()
+    )
+    (84): Sequential(
+      (conv_84): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_84): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_84): LeakyReLU(negative_slope=0.1)
+    )
+    (85): Sequential(
+      (upsample_85): Upsample(scale_factor=2.0, mode='nearest')
+    )
+    (86): Sequential(
+      (route_86): EmptyLayer()
+    )
+    (87): Sequential(
+      (conv_87): Conv2d(768, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_87): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_87): LeakyReLU(negative_slope=0.1)
+    )
+    (88): Sequential(
+      (conv_88): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_88): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_88): LeakyReLU(negative_slope=0.1)
+    )
+    (89): Sequential(
+      (conv_89): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_89): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_89): LeakyReLU(negative_slope=0.1)
+    )
+    (90): Sequential(
+      (conv_90): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_90): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_90): LeakyReLU(negative_slope=0.1)
+    )
+    (91): Sequential(
+      (conv_91): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_91): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_91): LeakyReLU(negative_slope=0.1)
+    )
+    (92): Sequential(
+      (conv_92): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_92): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_92): LeakyReLU(negative_slope=0.1)
+    )
+    (93): Sequential(
+      (conv_93): Conv2d(512, 24, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (94): Sequential(
+      (yolo_94): YOLOLayer(
+        (mse_loss): MSELoss()
+        (bce_loss): BCEWithLogitsLoss()
+        (ce_loss): CrossEntropyLoss()
+      )
+    )
+    (95): Sequential(
+      (route_95): EmptyLayer()
+    )
+    (96): Sequential(
+      (conv_96): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_96): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_96): LeakyReLU(negative_slope=0.1)
+    )
+    (97): Sequential(
+      (upsample_97): Upsample(scale_factor=2.0, mode='nearest')
+    )
+    (98): Sequential(
+      (route_98): EmptyLayer()
+    )
+    (99): Sequential(
+      (conv_99): Conv2d(384, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_99): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_99): LeakyReLU(negative_slope=0.1)
+    )
+    (100): Sequential(
+      (conv_100): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_100): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_100): LeakyReLU(negative_slope=0.1)
+    )
+    (101): Sequential(
+      (conv_101): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_101): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_101): LeakyReLU(negative_slope=0.1)
+    )
+    (102): Sequential(
+      (conv_102): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_102): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_102): LeakyReLU(negative_slope=0.1)
+    )
+    (103): Sequential(
+      (conv_103): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (batch_norm_103): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_103): LeakyReLU(negative_slope=0.1)
+    )
+    (104): Sequential(
+      (conv_104): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (batch_norm_104): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (leaky_104): LeakyReLU(negative_slope=0.1)
+    )
+    (105): Sequential(
+      (conv_105): Conv2d(256, 21, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (106): Sequential(
+      (yolo_106): YOLOLayer(
+        (mse_loss): MSELoss()
+        (bce_loss): BCEWithLogitsLoss()
+        (ce_loss): CrossEntropyLoss()
+      )
+    )
+  )
+)
+model.train
+C:\Users\salim\Documents\salimev\lib\site-packages\torch\nn\_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='mean' instead.
+  warnings.warn(warning.format(ret))
+  0%|                                                                                         | 0/24300 [00:00<?, ?it/s]
+('D:\\dataset3\\train/np_cesoir_19451102_01.jpg', tensor([[[0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         ...,
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020]],
+        [[0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         ...,
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020]],
+        [[0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         ...,
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020],
+         [0.5020, 0.5020, 0.5020,  ..., 0.5020, 0.5020, 0.5020]]]), tensor([[  0.0000, 852.9701, 269.2991, 528.6779,  26.0000]],
+       dtype=torch.float64))
+loader done
+debut du training
+epoch: 0
+  0%|                                                                                         | 0/24300 [00:00<?, ?it/s]C:\Users\salim\Documents\pytorch_custom_yolo_training\models.py:197: UserWarning: indexing with dtype torch.uint8 is now deprecated, please use a dtype torch.bool instead. (Triggered internally at ..\aten\src\ATen/native/IndexingUtils.h:28.)
+  loss_x = self.mse_loss(x[mask], tx[mask])
+C:\Users\salim\Documents\pytorch_custom_yolo_training\models.py:198: UserWarning: indexing with dtype torch.uint8 is now deprecated, please use a dtype torch.bool instead. (Triggered internally at ..\aten\src\ATen/native/IndexingUtils.h:28.)
+  loss_y = self.mse_loss(y[mask], ty[mask])
+C:\Users\salim\Documents\pytorch_custom_yolo_training\models.py:199: UserWarning: indexing with dtype torch.uint8 is now deprecated, please use a dtype torch.bool instead. (Triggered internally at ..\aten\src\ATen/native/IndexingUtils.h:28.)
+  loss_w = self.mse_loss(w[mask], tw[mask])
+C:\Users\salim\Documents\pytorch_custom_yolo_training\models.py:200: UserWarning: indexing with dtype torch.uint8 is now deprecated, please use a dtype torch.bool instead. (Triggered internally at ..\aten\src\ATen/native/IndexingUtils.h:28.)
+  loss_h = self.mse_loss(h[mask], th[mask])
+C:\Users\salim\Documents\pytorch_custom_yolo_training\models.py:201: UserWarning: indexing with dtype torch.uint8 is now deprecated, please use a dtype torch.bool instead. (Triggered internally at ..\aten\src\ATen/native/IndexingUtils.h:28.)
+  loss_conf = self.bce_loss(pred_conf[conf_mask_false], tconf[conf_mask_false]) + self.bce_loss(
+C:\Users\salim\Documents\pytorch_custom_yolo_training\models.py:202: UserWarning: indexing with dtype torch.uint8 is now deprecated, please use a dtype torch.bool instead. (Triggered internally at ..\aten\src\ATen/native/IndexingUtils.h:28.)
+  pred_conf[conf_mask_true], tconf[conf_mask_true]
+C:\Users\salim\Documents\pytorch_custom_yolo_training\models.py:204: UserWarning: indexing with dtype torch.uint8 is now deprecated, please use a dtype torch.bool instead. (Triggered internally at ..\aten\src\ATen/native/IndexingUtils.h:28.)
+  loss_cls = (1 / nB) * self.ce_loss(pred_cls[mask], torch.argmax(tcls[mask], 1))
+C:\Users\salim\Documents\salimev\lib\site-packages\torch\autograd\__init__.py:200: UserWarning: indexing with dtype torch.uint8 is now deprecated, please use a dtype torch.bool instead. (Triggered internally at ../aten/src\ATen/native/IndexingUtils.h:28.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  0%|                                                                              | 1/24300 [00:07<48:09:55,  7.14s/it]
+
+  0%|                                                                              | 2/24300 [00:11<35:59:14,  5.33s/it]
+
+  0%|                                                                              | 3/24300 [00:15<32:43:45,  4.85s/it]
+
+  0%|                                                                              | 4/24300 [00:19<30:19:55,  4.49s/it]
+[Epoch 0/20, Batch 4/24300] [Losses: x 0.206110, y 0.331739, w 4.200754, h 90.084242, conf 4.266075, cls 2.904785, total 101.993698, recall: 0.00000, precision: 0.00000]
+
+  0%|                                                                              | 6/24300 [00:27<28:30:40,  4.22s/it]
+
+  0%|                                                                              | 7/24300 [00:31<28:04:21,  4.16s/it]
+
+  0%|                                                                              | 8/24300 [00:35<27:43:52,  4.11s/it]
+
+  0%|                                                                              | 9/24300 [00:39<27:31:17,  4.08s/it]
+
+  0%|                                                                             | 10/24300 [00:43<27:24:44,  4.06s/it]
+
+  0%|                                                                             | 11/24300 [00:47<27:15:15,  4.04s/it]
+
+  0%|                                                                             | 12/24300 [00:51<27:07:59,  4.02s/it]
+
+  0%|                                                                             | 13/24300 [00:55<26:51:59,  3.98s/it]
+
+  0%|                                                                             | 14/24300 [00:59<26:54:17,  3.99s/it]
+
+  0%|                                                                             | 15/24300 [01:03<27:01:20,  4.01s/it]
+
+  0%|                                                                             | 16/24300 [01:07<26:56:57,  4.00s/it]
+
+  0%|                                                                             | 17/24300 [01:11<26:39:32,  3.95s/it]
+
+  0%|                                                                             | 18/24300 [01:15<26:42:26,  3.96s/it]
+
+  0%|                                                                             | 19/24300 [01:19<26:46:37,  3.97s/it]
+
+  0%|                                                                             | 20/24300 [01:23<26:36:13,  3.94s/it]
+
+  0%|                                                                             | 21/24300 [01:27<26:44:14,  3.96s/it]
+
+  0%|                                                                             | 22/24300 [01:31<26:47:33,  3.97s/it]
+
+  0%|                                                                             | 23/24300 [01:35<26:51:16,  3.98s/it]
+
+  0%|                                                                             | 24/24300 [01:39<26:53:33,  3.99s/it]
+
+  0%|                                                                             | 25/24300 [01:43<26:59:26,  4.00s/it]
+
+  0%|                                                                             | 26/24300 [01:47<27:00:17,  4.01s/it]
+
+  0%|                                                                             | 27/24300 [01:51<26:41:43,  3.96s/it]
+
+  0%|                                                                             | 28/24300 [01:55<26:46:04,  3.97s/it]
+
+  0%|                                                                             | 29/24300 [01:59<26:51:26,  3.98s/it]
+
+  0%|                                                                             | 30/24300 [02:03<26:54:58,  3.99s/it]
+
+  0%|                                                                             | 31/24300 [02:07<26:55:28,  3.99s/it]
+
+  0%|                                                                             | 32/24300 [02:11<26:58:05,  4.00s/it]
+
+  0%|                                                                             | 33/24300 [02:15<27:02:31,  4.01s/it]
+
+  0%|                                                                             | 34/24300 [02:19<27:02:01,  4.01s/it]
+
+  0%|                                                                             | 35/24300 [02:23<27:04:02,  4.02s/it]
+
+  0%|                                                                             | 36/24300 [02:27<27:04:28,  4.02s/it]
+
+  0%|                                                                             | 37/24300 [02:31<27:03:34,  4.01s/it]
+
+  0%|                                                                             | 38/24300 [02:35<27:00:31,  4.01s/it]
+
+  0%|                                                                             | 39/24300 [02:39<26:43:35,  3.97s/it]
+
+  0%|▏                                                                            | 40/24300 [02:43<26:46:11,  3.97s/it]
+
+  0%|▏                                                                            | 41/24300 [02:46<26:29:46,  3.93s/it]
+
+  0%|▏                                                                            | 42/24300 [02:50<26:35:21,  3.95s/it]
+
+  0%|▏                                                                            | 43/24300 [02:54<26:44:35,  3.97s/it]
+
+  0%|▏                                                                            | 44/24300 [02:58<26:45:47,  3.97s/it]
+
+  0%|▏                                                                            | 45/24300 [03:02<26:34:58,  3.95s/it]
+
+  0%|▏                                                                            | 46/24300 [03:07<27:30:28,  4.08s/it]
+
+  0%|▏                                                                            | 47/24300 [03:11<27:25:36,  4.07s/it]
+
+  0%|▏                                                                            | 48/24300 [03:15<27:41:19,  4.11s/it]
+
+  0%|▏                                                                            | 49/24300 [03:19<27:52:45,  4.14s/it]
+
+  0%|▏                                                                            | 50/24300 [03:24<28:23:29,  4.21s/it]
+
+  0%|▏                                                                            | 51/24300 [03:28<28:07:16,  4.17s/it]
+
+  0%|▏                                                                            | 52/24300 [03:32<28:09:40,  4.18s/it]
+
+  0%|▏                                                                            | 53/24300 [03:36<27:50:03,  4.13s/it]
+
+  0%|▏                                                                            | 54/24300 [03:40<27:59:35,  4.16s/it]
+
+  0%|▏                                                                            | 55/24300 [03:44<28:06:36,  4.17s/it]
+
+  0%|▏                                                                            | 56/24300 [03:48<28:06:34,  4.17s/it]
+
+  0%|▏                                                                            | 57/24300 [03:53<28:18:03,  4.20s/it]
+
+  0%|▏                                                                            | 58/24300 [03:57<28:16:16,  4.20s/it]
+
+  0%|▏                                                                            | 59/24300 [04:01<28:18:52,  4.20s/it]
+
+  0%|▏                                                                            | 60/24300 [04:05<27:59:22,  4.16s/it]
+
+  0%|▏                                                                            | 61/24300 [04:10<28:30:09,  4.23s/it]
+
+  0%|▏                                                                            | 62/24300 [04:14<28:22:58,  4.22s/it]
+
+  0%|▏                                                                            | 63/24300 [04:18<28:26:41,  4.22s/it]
+
+  0%|▏                                                                            | 64/24300 [04:22<28:26:49,  4.23s/it]
+
+  0%|▏                                                                            | 65/24300 [04:26<28:02:39,  4.17s/it]
+
+  0%|▏                                                                            | 66/24300 [04:31<28:31:17,  4.24s/it]
+
+  0%|▏                                                                            | 67/24300 [04:35<28:04:58,  4.17s/it]
+
+  0%|▏                                                                            | 68/24300 [04:39<28:10:49,  4.19s/it]
+
+  0%|▏                                                                            | 69/24300 [04:43<27:50:55,  4.14s/it]
+
+  0%|▏                                                                            | 70/24300 [04:47<28:00:14,  4.16s/it]
+
+  0%|▏                                                                            | 71/24300 [04:51<27:41:46,  4.12s/it]
+
+  0%|▏                                                                            | 72/24300 [04:55<27:53:53,  4.15s/it]
+
+  0%|▏                                                                            | 73/24300 [04:59<27:38:30,  4.11s/it]
+
+  0%|▏                                                                            | 74/24300 [05:03<27:29:05,  4.08s/it]
+
+  0%|▏                                                                            | 75/24300 [05:07<27:19:28,  4.06s/it]
+
+  0%|▏                                                                            | 76/24300 [05:11<27:14:09,  4.05s/it]
+
+  0%|▏                                                                            | 77/24300 [05:15<27:10:49,  4.04s/it]
+
+  0%|▏                                                                            | 78/24300 [05:19<27:06:39,  4.03s/it]
+
+  0%|▎                                                                            | 79/24300 [05:23<27:05:25,  4.03s/it]
+
+  0%|▎                                                                            | 80/24300 [05:27<27:06:04,  4.03s/it]
+
+  0%|▎                                                                            | 81/24300 [05:31<27:02:15,  4.02s/it]
+
+  0%|▎                                                                            | 82/24300 [05:35<27:02:55,  4.02s/it]
+
+  0%|▎                                                                            | 83/24300 [05:40<27:03:31,  4.02s/it]
+
+  0%|▎                                                                            | 84/24300 [05:44<27:01:08,  4.02s/it]
+
+  0%|▎                                                                            | 85/24300 [05:48<27:01:05,  4.02s/it]
+
+  0%|▎                                                                            | 86/24300 [05:52<27:02:24,  4.02s/it]
+[Epoch 0/20, Batch 86/24300] [Losses: x 0.303045, y 0.146918, w 5.081230, h 4.611693, conf 4.095155, cls 1.605469, total 15.843510, recall: 0.33333, precision: 0.00005]
+
+  0%|▎                                                                            | 88/24300 [05:57<22:18:18,  3.32s/it]
+
+  0%|▎                                                                            | 89/24300 [05:59<18:53:51,  2.81s/it]
+
+  0%|▎                                                                            | 90/24300 [06:01<16:34:44,  2.47s/it]
+
+  0%|▎                                                                            | 91/24300 [06:05<19:46:15,  2.94s/it]
+
+  0%|▎                                                                            | 92/24300 [06:09<21:57:04,  3.26s/it]
+
+  0%|▎                                                                            | 93/24300 [06:13<23:29:26,  3.49s/it]
+
+  0%|▎                                                                            | 94/24300 [06:17<24:52:46,  3.70s/it]
+
+  0%|▎                                                                            | 95/24300 [06:21<25:34:14,  3.80s/it]
+
+  0%|▎                                                                            | 96/24300 [06:25<26:22:28,  3.92s/it]
+
+
+  0%|▎                                                                            | 98/24300 [06:33<27:07:15,  4.03s/it]
+[Epoch 0/20, Batch 97/24300] [Losses: x 1.298789, y 0.325499, w 3.143729, h 1.320958, conf 4.109777, cls 1.606445, total 11.805197, recall: 0.33333, precision: 0.00016]
+
+  0%|▎                                                                            | 99/24300 [06:37<27:05:45,  4.03s/it]
+
+  0%|▎                                                                           | 100/24300 [06:42<27:25:42,  4.08s/it]
+
+  0%|▎                                                                           | 101/24300 [06:46<27:18:38,  4.06s/it]
+
+  0%|▎                                                                           | 102/24300 [06:50<27:12:58,  4.05s/it]
+
+  0%|▎                                                                           | 103/24300 [06:54<27:11:49,  4.05s/it]
+
+  0%|▎                                                                           | 104/24300 [06:58<27:07:32,  4.04s/it]
+
+  0%|▎                                                                           | 105/24300 [07:02<27:03:47,  4.03s/it]
+
+  0%|▎                                                                           | 106/24300 [07:06<27:04:53,  4.03s/it]
+
+  0%|▎                                                                           | 107/24300 [07:10<27:00:51,  4.02s/it]
+
+  0%|▎                                                                           | 108/24300 [07:14<26:59:11,  4.02s/it]
+
+  0%|▎                                                                           | 109/24300 [07:18<27:01:16,  4.02s/it]
+
+  0%|▎                                                                           | 110/24300 [07:22<27:00:09,  4.02s/it]
+
+
+  0%|▎                                                                           | 112/24300 [07:30<27:00:43,  4.02s/it]
+[Epoch 0/20, Batch 111/24300] [Losses: x 0.269980, y 0.011439, w 0.745788, h 0.559863, conf 4.100986, cls 1.613770, total 7.301826, recall: 0.33333, precision: 0.00017]
+
+  0%|▎                                                                           | 113/24300 [07:34<27:22:44,  4.08s/it]
+
+  0%|▎                                                                           | 114/24300 [07:38<27:15:25,  4.06s/it]
+
+  0%|▎                                                                           | 115/24300 [07:42<27:34:31,  4.10s/it]
+
+  0%|▎                                                                           | 116/24300 [07:46<27:22:58,  4.08s/it]
+
+  0%|▎                                                                           | 117/24300 [07:50<27:41:36,  4.12s/it]
+
+  0%|▎                                                                           | 118/24300 [07:55<27:53:28,  4.15s/it]
+
+  0%|▎                                                                           | 119/24300 [07:59<27:38:07,  4.11s/it]
+
+  0%|▍                                                                           | 120/24300 [08:03<27:49:20,  4.14s/it]
+
+  0%|▍                                                                           | 121/24300 [08:07<27:57:04,  4.16s/it]
+
+  1%|▍                                                                           | 122/24300 [08:11<27:39:29,  4.12s/it]
+
+  1%|▍                                                                           | 123/24300 [08:15<27:48:47,  4.14s/it]
+
+  1%|▍                                                                           | 124/24300 [08:19<27:36:15,  4.11s/it]
+
+
+  1%|▍                                                                           | 126/24300 [08:28<27:36:02,  4.11s/it]
+
+  1%|▍                                                                           | 127/24300 [08:32<27:23:20,  4.08s/it]
+
+  1%|▍                                                                           | 128/24300 [08:36<27:38:43,  4.12s/it]
+
+  1%|▍                                                                           | 129/24300 [08:40<27:27:05,  4.09s/it]
+[Epoch 0/20, Batch 128/24300] [Losses: x 0.678890, y 0.021686, w 0.182884, h 0.270671, conf 3.667731, cls 1.493652, total 6.315515, recall: 1.00000, precision: 0.00088]
+
+  1%|▍                                                                           | 130/24300 [08:44<27:45:42,  4.13s/it]
+
+  1%|▍                                                                           | 131/24300 [08:48<27:51:50,  4.15s/it]
+
+  1%|▍                                                                           | 132/24300 [08:52<28:01:46,  4.18s/it]
+
+  1%|▍                                                                           | 133/24300 [08:57<27:44:00,  4.13s/it]
+
+  1%|▍                                                                           | 134/24300 [09:01<27:51:17,  4.15s/it]
+
+  1%|▍                                                                           | 135/24300 [09:05<27:35:19,  4.11s/it]
+
+  1%|▍                                                                           | 136/24300 [09:09<27:24:07,  4.08s/it]
+
+  1%|▍                                                                           | 137/24300 [09:13<27:39:05,  4.12s/it]
+
+  1%|▍                                                                           | 138/24300 [09:17<27:30:28,  4.10s/it]
+
+  1%|▍                                                                           | 139/24300 [09:21<27:41:42,  4.13s/it]
+
+  1%|▍                                                                           | 140/24300 [09:25<27:50:20,  4.15s/it]
+
+  1%|▍                                                                           | 141/24300 [09:29<27:37:20,  4.12s/it]
+
+  1%|▍                                                                           | 142/24300 [09:33<27:26:15,  4.09s/it]
+
+  1%|▍                                                                           | 143/24300 [09:37<27:18:39,  4.07s/it]
+
+  1%|▍                                                                           | 144/24300 [09:41<27:10:49,  4.05s/it]
+
+  1%|▍                                                                           | 145/24300 [09:46<27:06:07,  4.04s/it]
+
+  1%|▍                                                                           | 146/24300 [09:50<27:04:36,  4.04s/it]
+
+  1%|▍                                                                           | 147/24300 [09:54<27:01:19,  4.03s/it]
+
+  1%|▍                                                                           | 148/24300 [09:58<27:18:36,  4.07s/it]
+
+  1%|▍                                                                           | 149/24300 [10:02<27:15:51,  4.06s/it]
+
+  1%|▍                                                                           | 150/24300 [10:06<27:12:17,  4.06s/it]
+
+  1%|▍                                                                           | 151/24300 [10:10<27:07:02,  4.04s/it]
+
+  1%|▍                                                                           | 152/24300 [10:14<27:03:27,  4.03s/it]
+
+  1%|▍                                                                           | 153/24300 [10:18<27:03:46,  4.03s/it]
+
+  1%|▍                                                                           | 154/24300 [10:22<26:59:54,  4.03s/it]
+
+  1%|▍                                                                           | 155/24300 [10:26<27:21:00,  4.08s/it]
+
+  1%|▍                                                                           | 156/24300 [10:30<27:14:34,  4.06s/it]
+
+  1%|▍                                                                           | 157/24300 [10:34<27:11:16,  4.05s/it]
+
+  1%|▍                                                                           | 158/24300 [10:38<27:04:40,  4.04s/it]
+
+  1%|▍                                                                           | 159/24300 [10:42<27:01:28,  4.03s/it]
+
+  1%|▌                                                                           | 160/24300 [10:46<27:01:25,  4.03s/it]
+
+  1%|▌                                                                           | 161/24300 [10:50<27:21:38,  4.08s/it]
+
+  1%|▌                                                                           | 162/24300 [10:54<27:14:16,  4.06s/it]
+
+  1%|▌                                                                           | 163/24300 [10:59<27:32:59,  4.11s/it]
+
+  1%|▌                                                                           | 164/24300 [11:03<27:22:52,  4.08s/it]
+
+  1%|▌                                                                           | 165/24300 [11:07<28:01:14,  4.18s/it]
+
+  1%|▌                                                                           | 166/24300 [11:11<27:43:26,  4.14s/it]
+
+  1%|▌                                                                           | 167/24300 [11:15<27:54:33,  4.16s/it]
+
+  1%|▌                                                                           | 168/24300 [11:19<27:37:04,  4.12s/it]
+
+  1%|▌                                                                           | 169/24300 [11:24<27:47:42,  4.15s/it]
+
+  1%|▌                                                                           | 170/24300 [11:28<27:30:50,  4.10s/it]
+
+  1%|▌                                                                           | 171/24300 [11:32<27:44:40,  4.14s/it]
+
+  1%|▌                                                                           | 172/24300 [11:36<27:54:19,  4.16s/it]
+
+  1%|▌                                                                           | 173/24300 [11:40<27:35:42,  4.12s/it]
+
+  1%|▌                                                                           | 174/24300 [11:44<27:48:34,  4.15s/it]
+
+  1%|▌                                                                           | 175/24300 [11:48<27:32:15,  4.11s/it]
+
+  1%|▌                                                                           | 176/24300 [11:52<27:20:09,  4.08s/it]
+
+  1%|▌                                                                           | 177/24300 [11:56<27:34:32,  4.12s/it]
+
+  1%|▌                                                                           | 178/24300 [12:00<27:24:18,  4.09s/it]
+
+  1%|▌                                                                           | 179/24300 [12:05<27:39:43,  4.13s/it]
+
+  1%|▌                                                                           | 180/24300 [12:09<27:28:10,  4.10s/it]
+
+  1%|▌                                                                           | 181/24300 [12:13<27:16:02,  4.07s/it]
+
+  1%|▌                                                                           | 182/24300 [12:17<27:10:25,  4.06s/it]
+
+  1%|▌                                                                           | 183/24300 [12:21<27:06:24,  4.05s/it]
+
+  1%|▌                                                                           | 184/24300 [12:25<27:27:01,  4.10s/it]
+
+  1%|▌                                                                           | 185/24300 [12:29<27:15:56,  4.07s/it]
+
+  1%|▌                                                                           | 186/24300 [12:33<27:31:22,  4.11s/it]
+
+  1%|▌                                                                           | 187/24300 [12:37<27:20:21,  4.08s/it]
+
+  1%|▌                                                                           | 188/24300 [12:41<27:38:46,  4.13s/it]
+
+  1%|▌                                                                           | 189/24300 [12:44<24:16:11,  3.62s/it]
+
+  1%|▌                                                                           | 190/24300 [12:46<21:58:05,  3.28s/it]
+
+  1%|▌                                                                           | 191/24300 [12:50<23:36:41,  3.53s/it]
+
+  1%|▌                                                                           | 192/24300 [12:55<25:01:02,  3.74s/it]
+
+  1%|▌                                                                           | 193/24300 [12:59<26:01:40,  3.89s/it]
+
+  1%|▌                                                                           | 194/24300 [13:03<27:02:35,  4.04s/it]
+
+  1%|▌                                                                           | 195/24300 [13:07<27:00:26,  4.03s/it]
+
+  1%|▌                                                                           | 196/24300 [13:12<27:23:36,  4.09s/it]
+
+  1%|▌                                                                           | 197/24300 [13:16<27:14:18,  4.07s/it]
+
+  1%|▌                                                                           | 198/24300 [13:20<27:32:35,  4.11s/it]
+
+  1%|▌                                                                           | 199/24300 [13:24<27:46:08,  4.15s/it]
+
+  1%|▋                                                                           | 200/24300 [13:28<27:27:49,  4.10s/it]
+
+  1%|▋                                                                           | 201/24300 [13:32<27:40:57,  4.14s/it]
+
+  1%|▋                                                                           | 202/24300 [13:36<27:26:15,  4.10s/it]
+
+  1%|▋                                                                           | 203/24300 [13:40<27:41:08,  4.14s/it]
+
+  1%|▋                                                                           | 204/24300 [13:44<27:27:54,  4.10s/it]
+
+  1%|▋                                                                           | 205/24300 [13:49<27:43:56,  4.14s/it]
+
+  1%|▋                                                                           | 206/24300 [13:53<27:25:41,  4.10s/it]
+
+
+  1%|▋                                                                           | 208/24300 [14:01<27:49:14,  4.16s/it]
+
+  1%|▋                                                                           | 209/24300 [14:05<27:54:17,  4.17s/it]
+
+  1%|▋                                                                           | 210/24300 [14:09<27:38:37,  4.13s/it]
+[Epoch 0/20, Batch 209/24300] [Losses: x 0.075557, y 0.183096, w 0.322616, h 1.745915, conf 3.830969, cls 1.450684, total 7.608837, recall: 0.66667, precision: 0.00027]
+
+  1%|▋                                                                           | 211/24300 [14:14<27:48:27,  4.16s/it]
+
+  1%|▋                                                                           | 212/24300 [14:18<27:33:29,  4.12s/it]
+
+  1%|▋                                                                           | 213/24300 [14:22<27:43:23,  4.14s/it]
+
+  1%|▋                                                                           | 214/24300 [14:26<27:28:08,  4.11s/it]
+
+  1%|▋                                                                           | 215/24300 [14:30<27:40:02,  4.14s/it]
+
+  1%|▋                                                                           | 216/24300 [14:34<27:27:05,  4.10s/it]
+
+  1%|▋                                                                           | 217/24300 [14:38<27:17:55,  4.08s/it]
+
+  1%|▋                                                                           | 218/24300 [14:42<27:34:21,  4.12s/it]
+
+  1%|▋                                                                           | 219/24300 [14:46<27:20:48,  4.09s/it]
+
+  1%|▋                                                                           | 220/24300 [14:50<27:11:32,  4.07s/it]
+
+  1%|▋                                                                           | 221/24300 [14:54<27:07:05,  4.05s/it]
+
+  1%|▋                                                                           | 222/24300 [14:59<27:25:49,  4.10s/it]
+
+  1%|▋                                                                           | 223/24300 [15:03<27:14:33,  4.07s/it]
+
+  1%|▋                                                                           | 224/24300 [15:07<27:29:57,  4.11s/it]
+
+  1%|▋                                                                           | 225/24300 [15:11<27:19:39,  4.09s/it]
+
+  1%|▋                                                                           | 226/24300 [15:15<27:35:13,  4.13s/it]
+
+  1%|▋                                                                           | 227/24300 [15:19<27:48:23,  4.16s/it]
+
+  1%|▋                                                                           | 228/24300 [15:23<27:32:36,  4.12s/it]
+
+  1%|▋                                                                           | 229/24300 [15:28<27:42:51,  4.14s/it]
+
+  1%|▋                                                                           | 230/24300 [15:32<27:49:15,  4.16s/it]
+
+  1%|▋                                                                           | 231/24300 [15:36<27:58:21,  4.18s/it]
+
+  1%|▋                                                                           | 232/24300 [15:40<27:37:20,  4.13s/it]
+
+  1%|▋                                                                           | 233/24300 [15:44<27:46:15,  4.15s/it]
+
+  1%|▋                                                                           | 234/24300 [15:48<27:47:22,  4.16s/it]
+
+  1%|▋                                                                           | 235/24300 [15:52<27:37:08,  4.13s/it]
+
+  1%|▋                                                                           | 236/24300 [15:57<27:48:07,  4.16s/it]
+
+  1%|▋                                                                           | 237/24300 [16:01<27:54:28,  4.18s/it]
+
+  1%|▋                                                                           | 238/24300 [16:05<28:01:16,  4.19s/it]
+
+  1%|▋                                                                           | 239/24300 [16:09<28:01:12,  4.19s/it]
+
+  1%|▊                                                                           | 240/24300 [16:14<28:05:56,  4.20s/it]
+
+
+  1%|▊                                                                           | 242/24300 [16:22<28:10:05,  4.22s/it]
+
+  1%|▊                                                                           | 243/24300 [16:26<27:47:15,  4.16s/it]
+[Epoch 0/20, Batch 242/24300] [Losses: x 0.349644, y 0.083482, w 0.081734, h 0.070031, conf 3.530661, cls 1.465820, total 5.581372, recall: 1.00000, precision: 0.00136]
+
+  1%|▊                                                                           | 244/24300 [16:30<27:50:15,  4.17s/it]
+
+  1%|▊                                                                           | 245/24300 [16:34<27:57:23,  4.18s/it]
+
+  1%|▊                                                                           | 246/24300 [16:38<27:38:41,  4.14s/it]
+
+  1%|▊                                                                           | 247/24300 [16:43<27:45:47,  4.16s/it]
+
+  1%|▊                                                                           | 248/24300 [16:47<27:31:28,  4.12s/it]
+
+  1%|▊                                                                           | 249/24300 [16:51<27:43:32,  4.15s/it]
+
+  1%|▊                                                                           | 250/24300 [16:55<27:29:05,  4.11s/it]
+
+  1%|▊                                                                           | 251/24300 [16:59<27:39:00,  4.14s/it]
+
+  1%|▊                                                                           | 252/24300 [17:03<27:44:56,  4.15s/it]
+
+  1%|▊                                                                           | 253/24300 [17:07<27:31:22,  4.12s/it]
+
+  1%|▊                                                                           | 254/24300 [17:12<27:40:59,  4.14s/it]
+
+  1%|▊                                                                           | 255/24300 [17:16<27:28:23,  4.11s/it]
+
+  1%|▊                                                                           | 256/24300 [17:20<27:40:23,  4.14s/it]
+
+  1%|▊                                                                           | 257/24300 [17:24<27:27:14,  4.11s/it]
+
+
+  1%|▊                                                                           | 259/24300 [17:32<27:45:56,  4.16s/it]
+[Epoch 0/20, Batch 258/24300] [Losses: x 0.545127, y 0.243973, w 0.050663, h 0.109879, conf 3.526323, cls 1.448242, total 5.924207, recall: 1.00000, precision: 0.00121]
+
+  1%|▊                                                                           | 260/24300 [17:36<27:53:54,  4.18s/it]
+
+  1%|▊                                                                           | 261/24300 [17:41<27:52:55,  4.18s/it]
+
+  1%|▊                                                                           | 262/24300 [17:45<27:39:59,  4.14s/it]
+
+  1%|▊                                                                           | 263/24300 [17:49<27:24:36,  4.11s/it]
+
+  1%|▊                                                                           | 264/24300 [17:53<27:15:21,  4.08s/it]
+
+  1%|▊                                                                           | 265/24300 [17:57<27:29:57,  4.12s/it]
+
+  1%|▊                                                                           | 266/24300 [18:01<27:38:54,  4.14s/it]
+
+  1%|▊                                                                           | 267/24300 [18:05<27:50:04,  4.17s/it]
+
+  1%|▊                                                                           | 268/24300 [18:09<27:32:29,  4.13s/it]
+
+  1%|▊                                                                           | 269/24300 [18:14<27:41:15,  4.15s/it]
+
+  1%|▊                                                                           | 270/24300 [18:18<27:28:39,  4.12s/it]
+
+  1%|▊                                                                           | 271/24300 [18:22<27:16:47,  4.09s/it]
+
+  1%|▊                                                                           | 272/24300 [18:26<27:31:34,  4.12s/it]
+
+  1%|▊                                                                           | 273/24300 [18:30<27:19:27,  4.09s/it]
+
+  1%|▊                                                                           | 274/24300 [18:34<27:32:17,  4.13s/it]
+
+  1%|▊                                                                           | 275/24300 [18:38<27:18:38,  4.09s/it]
+
+  1%|▊                                                                           | 276/24300 [18:42<27:35:58,  4.14s/it]
+
+  1%|▊                                                                           | 277/24300 [18:46<27:21:43,  4.10s/it]
+
+  1%|▊                                                                           | 278/24300 [18:53<27:12:26,  4.08s/it]
+Traceback (most recent call last):
+  File "C:\Users\salim\Documents\pytorch_custom_yolo_training\train.py", line 94, in <module>
+    for  (_, imgs, targets) in tqdm(dataloader):
+  File "C:\Users\salim\Documents\salimev\lib\site-packages\tqdm\std.py", line 1178, in __iter__
+    for obj in iterable:
+  File "C:\Users\salim\Documents\salimev\lib\site-packages\torch\utils\data\dataloader.py", line 633, in __next__
+    data = self._next_data()
+  File "C:\Users\salim\Documents\salimev\lib\site-packages\torch\utils\data\dataloader.py", line 677, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\salim\Documents\salimev\lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "C:\Users\salim\Documents\salimev\lib\site-packages\torch\utils\data\_utils\fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "C:\Users\salim\Documents\pytorch_custom_yolo_training\utils\datasets.py", line 87, in __getitem__
+    input_img = resize(input_img, (*self.img_shape, 3), mode='reflect')
+  File "C:\Users\salim\Documents\salimev\lib\site-packages\skimage\transform\_warps.py", line 179, in resize
+    filtered = ndi.gaussian_filter(image, anti_aliasing_sigma,
+  File "C:\Users\salim\Documents\salimev\lib\site-packages\scipy\ndimage\_filters.py", line 368, in gaussian_filter
+    gaussian_filter1d(input, sigma, axis, order, output,
+  File "C:\Users\salim\Documents\salimev\lib\site-packages\scipy\ndimage\_filters.py", line 276, in gaussian_filter1d
+    return correlate1d(input, weights, axis, output, mode, cval, 0)
+  File "C:\Users\salim\Documents\salimev\lib\site-packages\scipy\ndimage\_filters.py", line 134, in correlate1d
+    _nd_image.correlate1d(input, weights, axis, output, mode, cval,
+KeyboardInterrupt
