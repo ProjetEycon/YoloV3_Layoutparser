@@ -74,7 +74,7 @@ model.apply(weights_init_normal)
 if cuda:
     model = model.cuda()
 
-model.eval()
+model.train()
 print("model.eval")
 # Get dataloader
 dataset=ListDataset(train_path)
