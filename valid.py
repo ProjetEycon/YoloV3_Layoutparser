@@ -85,17 +85,15 @@ print(dataset[0])
 print("loader done")
 Tensor = torch.cuda.FloatTensor if cuda else torch.FloatTensor
 
-optimizer = torch.optim.SGD(filter(lambda p: p.requires_grad, model.parameters()),lr=learning_rate)
 print("debut du training")
 from tqdm import tqdm
 losss=[]
 for epoch in range(1):
     print('epoch:',epoch)
     batch_i=0
-    optimizer.zero_grad()
     for  (_, imgs, targets) in tqdm(dataloader):
         #with torch.cuda.amp.autocast():
-            with torch.no_grad():   
+              
                 imgs = Variable(imgs.type(Tensor))
                 targets = Variable(targets.type(Tensor), requires_grad=False)
                 loss = model(imgs, targets)
